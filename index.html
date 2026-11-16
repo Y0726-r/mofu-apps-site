@@ -113,6 +113,10 @@ footer .big{color:#fff}
 footer .links{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
 footer .btn{background:#fff;color:var(--ink)}
 footer .btn.ghost{background:transparent;color:#fff;border-color:#fff}
+footer .mail{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:30px}
+footer .addr{font-weight:800;font-size:clamp(18px,3.4vw,28px);user-select:all;word-break:break-all;border-bottom:2px solid var(--lemon);padding-bottom:2px}
+footer .copy{font:inherit;font-size:13px;font-weight:800;padding:8px 16px;border-radius:99px;border:1.5px solid #fff;background:transparent;color:#fff;cursor:pointer}
+footer .copy:hover{background:#fff;color:var(--ink)}
 footer small{display:block;margin-top:80px;font-size:11px;opacity:.5}
 
 /* ---------- reveal ---------- */
@@ -259,6 +263,10 @@ footer small{display:block;margin-top:80px;font-size:11px;opacity:.5}
   <div class="wrap">
     <div class="big rv">Say hi.</div>
     <p class="jp rv" style="margin-top:20px;font-size:15px">アプリの感想・ご依頼・お問い合わせは、こちらから。</p>
+    <div class="mail rv">
+      <span class="addr" id="mail-addr">mofu.apps.1104@gmail.com</span>
+      <button class="copy" id="copy-mail" type="button">コピー</button>
+    </div>
     <div class="links rv">
       <a class="btn" href="mailto:mofu.apps.1104@gmail.com">メールを送る</a>
       <a class="btn ghost" href="https://x.com/MitsukiSHIFTAI" target="_blank" rel="noopener">X をみる</a>
@@ -270,6 +278,12 @@ footer small{display:block;margin-top:80px;font-size:11px;opacity:.5}
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.getElementById('copy-mail').addEventListener('click',e=>{
+  const b=e.currentTarget,t=document.getElementById('mail-addr').textContent;
+  const done=()=>{b.textContent='コピーしました';setTimeout(()=>b.textContent='コピー',1800)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('mail-addr'));const s=getSelection();s.removeAllRanges();s.addRange(r)};
+  if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,sel)}else{sel()}
+});
 </script>
 </body>
 </html>
