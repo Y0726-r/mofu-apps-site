@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mofu apps</title>
+<meta name="description" content="AIといっしょに、ほしいアプリを自分でつくる。mofu apps の作品ページ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#2B35E8;
+  --blue-deep:#1C24B8;
+  --lilac:#E9D8F5;
+  --lemon:#F5D02A;
+  --ink:#141414;
+  --paper:#FFFFFF;
+  --mute:#6B6B6B;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Montserrat","Zen Kaku Gothic New",sans-serif;line-height:1.7;overflow-x:hidden}
+.jp{font-family:"Zen Kaku Gothic New",sans-serif}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+nav{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:22px 28px;color:var(--ink)}
+nav .logo{font-weight:900;font-size:18px;letter-spacing:.5px}
+nav ul{display:flex;gap:22px;list-style:none;font-size:13px;font-weight:600}
+nav a{text-decoration:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;height:100vh;min-height:560px;max-height:860px;background:var(--blue);overflow:hidden}
+.blob{position:absolute;border-radius:50% 50% 46% 46% / 62% 62% 38% 38%;animation:float 7s ease-in-out infinite}
+.blob::after{content:"";position:absolute;left:22%;top:14%;width:26%;height:16%;border-radius:50%;background:rgba(255,255,255,.75);filter:blur(2px);transform:rotate(-25deg)}
+.b-lilac{background:radial-gradient(circle at 35% 30%,#fff 0%,#F3E6FB 22%,#D9BEEE 60%,#B693D6 100%);box-shadow:inset -14px -18px 30px rgba(120,70,170,.35),0 30px 50px rgba(10,10,80,.35)}
+.b-lemon{background:radial-gradient(circle at 35% 30%,#FFFBE0 0%,#F7E68A 30%,#E9C93F 75%,#C9A41C 100%);box-shadow:inset -14px -18px 30px rgba(150,110,0,.3),0 30px 50px rgba(10,10,80,.35)}
+.b-glass{background:radial-gradient(circle at 35% 30%,#9FA6FF 0%,#4651F5 35%,#2029C9 80%);box-shadow:inset -10px -16px 30px rgba(0,0,60,.45),inset 8px 10px 24px rgba(255,255,255,.35),0 30px 50px rgba(10,10,80,.45)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-16px) rotate(var(--r,0deg))}}
+.hero-title{position:absolute;right:6%;bottom:16%;color:#fff;font-weight:900;font-size:clamp(64px,12vw,150px);line-height:.88;letter-spacing:-2px;transform:rotate(-28deg);transform-origin:right bottom;text-shadow:0 10px 30px rgba(0,0,60,.25)}
+.hero-sub{position:absolute;left:28px;bottom:28px;color:#fff;font-size:13px;font-weight:600;letter-spacing:1px}
+
+/* ---------- statement ---------- */
+.statement{padding:70px 0 90px}
+.big{font-weight:900;font-size:clamp(56px,10vw,120px);line-height:.95;letter-spacing:-2px}
+.statement .jp-catch{font-weight:900;font-size:clamp(20px,3vw,28px);margin-top:28px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;margin-top:40px;font-size:13px;color:#333;max-width:640px}
+.cols b{color:var(--ink)}
+
+/* ---------- about ---------- */
+.about{position:relative;padding:40px 0 110px}
+.about .grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+.label{font-weight:800;font-size:20px;margin-bottom:18px}
+.tools{display:flex;flex-wrap:wrap;gap:14px}
+.tool{width:76px;text-align:center;font-size:11px;font-weight:600}
+.tool i{display:flex;align-items:center;justify-content:center;width:58px;height:58px;margin:0 auto 6px;border-radius:16px;background:var(--ink);color:#fff;font-style:normal;font-weight:900;font-size:18px}
+.history{list-style:none}
+.history li{padding:12px 0;border-bottom:1px solid #eee}
+.history .t{font-weight:700;font-size:15px}
+.history .d{font-size:12px;color:var(--mute)}
+.dash{position:absolute;right:-60px;top:-40px;width:520px;height:520px;pointer-events:none}
+
+/* ---------- works index ---------- */
+.works{background:var(--blue);color:#fff;padding:110px 0 120px}
+.works .grid{display:grid;grid-template-columns:1fr 1.5fr;gap:40px;align-items:start}
+.nums{display:grid;grid-template-columns:1fr 1fr;gap:40px 30px}
+.num a{text-decoration:none;display:block}
+.num .n{font-weight:400;font-size:clamp(64px,8vw,96px);line-height:1;color:transparent;-webkit-text-stroke:1.5px #fff;letter-spacing:-2px;transition:color .25s}
+.num a:hover .n{color:#fff}
+.num .k{font-weight:800;font-size:15px;margin-top:10px}
+.num .s{font-size:12px;opacity:.75}
+.num.soon .n{-webkit-text-stroke:1.5px rgba(255,255,255,.45)}
+.num.soon .k,.num.soon .s{opacity:.55}
+
+/* ---------- single work ---------- */
+.work{position:relative;padding:110px 0 120px;overflow:hidden}
+.work .head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+.work .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:2px;padding:5px 12px;border:1.5px solid var(--ink);border-radius:99px}
+.work h2{font-weight:900;font-size:clamp(40px,6vw,64px);line-height:1.05;margin:16px 0 12px;letter-spacing:-1px}
+.work .lead{font-weight:700;font-size:17px}
+.work p.body{font-size:14px;color:#333;margin-top:14px;max-width:440px}
+.work .problem{font-size:13px;color:#333;margin-top:24px;max-width:440px}
+.work .problem b{background:linear-gradient(transparent 60%,var(--lemon) 60%)}
+.vert{position:absolute;right:3%;top:90px;writing-mode:vertical-rl;font-weight:900;font-size:clamp(56px,8vw,96px);line-height:1;letter-spacing:-1px;z-index:1}
+.wave{position:absolute;left:0;right:0;bottom:0;height:62%;z-index:0}
+.feat{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:70px}
+.feat div{background:#fff;border-radius:20px;padding:22px;font-size:13px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.feat b{display:block;font-weight:800;font-size:15px;margin-bottom:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:14px 26px;border-radius:99px;background:var(--ink);color:#fff;text-decoration:none;font-weight:800;font-size:14px;transition:transform .2s}
+.btn:hover{transform:translateY(-3px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+
+.phone{width:min(300px,80%);margin:0 auto;border-radius:36px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.18);transform:rotate(4deg)}
+.phone img{display:block;width:100%}
+.appicon{position:absolute;width:96px;border-radius:24px;box-shadow:0 14px 30px rgba(0,0,0,.18);left:4%;bottom:-20px;transform:rotate(-10deg)}
+.visual{position:relative}
+
+.sq-stage{position:relative;width:min(360px,90%);aspect-ratio:1;margin:0 auto}
+.sq-stage .blob{width:100%;height:100%;left:0;top:0;animation-duration:8s}
+.sq-stage img.p{position:absolute;width:62%;left:19%;top:14%;image-rendering:pixelated;z-index:2}
+.sq-stage img.c{position:absolute;width:34%;right:-6%;bottom:-4%;image-rendering:pixelated;z-index:2}
+
+/* ---------- next ---------- */
+.next{background:var(--lilac);padding:100px 0;text-align:center}
+.next .q{font-weight:900;font-size:clamp(48px,9vw,110px);line-height:.95;letter-spacing:-2px;color:var(--blue)}
+.next p{margin-top:20px;font-size:15px;font-weight:700}
+
+/* ---------- contact ---------- */
+footer{background:var(--ink);color:#fff;padding:100px 0 50px}
+footer .big{color:#fff}
+footer .links{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+footer .btn{background:#fff;color:var(--ink)}
+footer .btn.ghost{background:transparent;color:#fff;border-color:#fff}
+footer small{display:block;margin-top:80px;font-size:11px;opacity:.5}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.rv.on{opacity:1;transform:none}
+
+@media (max-width:760px){
+  nav ul{gap:14px;font-size:12px}
+  .about .grid,.works .grid,.work .head{grid-template-columns:1fr}
+  .feat{grid-template-columns:1fr}
+  .vert{font-size:52px;top:40px;right:12px;opacity:.9}
+  .hero-title{right:-4%;bottom:22%}
+  .dash{display:none}
+  .work .head .visual{order:-1;margin-bottom:20px}
+}
+@media (prefers-reduced-motion:reduce){.blob{animation:none}.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">mofu apps</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="wrap">
+    <div class="big rv">Make what<br>I want.</div>
+    <div class="jp-catch jp rv">「あったらいいな」を、AIといっしょに形にしています。</div>
+    <div class="cols jp rv">
+      <p>暮らしの中で「これ、めんどくさいな」と思ったことを、小さなアプリにしています。</p>
+      <p>プログラミングはAIといっしょに。作ったアプリは、ここに1つずつ増えていきます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <svg class="dash" viewBox="0 0 520 520" fill="none"><path d="M60 40 C 300 0, 520 120, 430 260 S 160 330, 220 470" stroke="#2B35E8" stroke-width="1.6" stroke-dasharray="6 7"/></svg>
+  <div class="wrap grid">
+    <div class="rv">
+      <div class="label">Tools</div>
+      <div class="tools">
+        <div class="tool"><i>AI</i>Claude</div>
+        <div class="tool"><i>Sw</i>Swift</div>
+        <div class="tool"><i>Xc</i>Xcode</div>
+        <div class="tool"><i>JS</i>JavaScript</div>
+        <div class="tool"><i>Fg</i>Figma</div>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="label">Timeline</div>
+      <ul class="history jp">
+        <li><div class="t">おかいもの</div><div class="d">2026 · iPhoneアプリ · App Store 審査中</div></li>
+        <li><div class="t">StudyQuest</div><div class="d">2026 · Webアプリ · 無料で公開中</div></li>
+        <li><div class="t">mofu apps スタート</div><div class="d">2026 · 個人でアプリ開発をはじめる</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS INDEX -->
+<section class="works" id="works">
+  <div class="wrap grid">
+    <div class="big rv">Wor-<br>ks.</div>
+    <div class="nums rv">
+      <div class="num"><a href="#kaimono"><div class="n">01.</div><div class="k">iPhone App</div><div class="s jp">おかいもの — レシピ動画から買い物リスト</div></a></div>
+      <div class="num"><a href="#studyquest"><div class="n">02.</div><div class="k">Web App</div><div class="s jp">StudyQuest — 勉強がRPGになる</div></a></div>
+      <div class="num soon"><div class="n">03.</div><div class="k">Coming soon</div><div class="s jp">つぎのアプリ、つくってます</div></div>
+      <div class="num soon"><div class="n">04.</div><div class="k">???</div><div class="s jp">おたのしみに</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section class="work" id="kaimono">
+  <svg class="wave" viewBox="0 0 1440 600" preserveAspectRatio="none"><path d="M0 220 C 300 40, 620 60, 900 160 S 1300 60, 1440 0 L1440 600 L0 600 Z" fill="#F5D02A"/></svg>
+  <div class="vert">What if?</div>
+  <div class="wrap">
+    <div class="head">
+      <div class="rv">
+        <span class="tag">01 · iPhone App</span>
+        <h2 class="jp">おかいもの</h2>
+        <div class="lead jp">リンクを貼るだけで、材料が買い物リストに。</div>
+        <p class="problem jp">レシピ動画を見て「これ作ろう」と思っても、<b>材料をメモするのがめんどくさい。</b>一時停止して、書いて、また再生して…。それを全部なくしたくて作りました。</p>
+        <a class="btn" href="https://secretive-string-9f1.notion.site/40e49272e10a80178824fcc527992ceb" target="_blank" rel="noopener">もうすぐ App Store に →</a>
+      </div>
+      <div class="visual rv">
+        <div class="phone"><img src="img/kaimono-shot.png" alt="おかいものアプリの画面。レシピごとに材料が並んでいる"></div>
+        <img class="appicon" src="img/kaimono-icon.png" alt="おかいもののアイコン">
+      </div>
+    </div>
+    <div class="feat jp">
+      <div class="rv"><b>YouTube・スクショから</b>リンクや画面の写真から、材料を読み取ります。</div>
+      <div class="rv"><b>人数で自動計算</b>人数を変えると、グラムや大さじもいっしょに変わります。</div>
+      <div class="rv"><b>家族といっしょに</b>リストを家族と共有して、買い物を頼めます。</div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="studyquest">
+  <svg class="wave" viewBox="0 0 1440 600" preserveAspectRatio="none"><path d="M0 120 C 260 0, 560 200, 860 140 S 1280 10, 1440 90 L1440 600 L0 600 Z" fill="#E9D8F5"/></svg>
+  <div class="vert" style="left:3%;right:auto">Level up!</div>
+  <div class="wrap">
+    <div class="head">
+      <div class="visual rv">
+        <div class="sq-stage">
+          <div class="blob b-glass"></div>
+          <img class="p" src="img/sq-player.png" alt="StudyQuestの主人公のドット絵">
+          <img class="c" src="img/sq-chest.png" alt="宝箱のドット絵">
+        </div>
+      </div>
+      <div class="rv">
+        <span class="tag">02 · Web App</span>
+        <h2>StudyQuest</h2>
+        <div class="lead jp">続かない勉強を、RPGにした。</div>
+        <p class="problem jp">資格の勉強、<b>3日でやめちゃう問題。</b>だったらゲームにしちゃえばいい、と思って作りました。勉強した時間が、そのまま経験値になります。</p>
+        <a class="btn" href="https://study-rpg-one.vercel.app/" target="_blank" rel="noopener">無料であそぶ →</a>
+      </div>
+    </div>
+    <div class="feat jp">
+      <div class="rv"><b>勉強するとレベルアップ</b>タイマーで勉強した時間が、経験値とコインになります。</div>
+      <div class="rv"><b>ガチャで装備あつめ</b>たまったコインでガチャを回して、装備を集めます。</div>
+      <div class="rv"><b>月ごとのふりかえり</b>どれだけがんばったか、記録で見返せます。</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT -->
+<section class="next">
+  <div class="wrap rv">
+    <div class="q">What's<br>next?</div>
+    <p class="jp">つぎのアプリも、つくってます。</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="big rv">Say hi.</div>
+    <p class="jp rv" style="margin-top:20px;font-size:15px">アプリの感想・ご依頼・お問い合わせは、こちらから。</p>
+    <div class="links rv">
+      <a class="btn" href="mailto:mofu.apps.1104@gmail.com">メールを送る</a>
+      <a class="btn ghost" href="https://x.com/MitsukiSHIFTAI" target="_blank" rel="noopener">X をみる</a>
+    </div>
+    <small>© 2026 mofu apps</small>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
